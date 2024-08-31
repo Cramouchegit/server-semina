@@ -1,18 +1,6 @@
 const Images = require("../../api/v1/images/model");
 const { NotFoundError } = require("../../errors");
 
-/**
- * 1. kita gunain cara pertama
- * 2. ini cara kedua: generate url dulu setelah submit baru kita simpan images
- */
-
-// 2. ini cara kedua: generate url dulu setelah submit baru kita simpan images
-const generateUrlImage = async (req) => {
-  const result = `uploads/${req.file.filename}`;
-
-  return result;
-};
-
 // 1. kita gunain cara pertama
 const createImages = async (req) => {
   const result = await Images.create({

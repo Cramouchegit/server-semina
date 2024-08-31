@@ -7,8 +7,8 @@ const {
   getAllLandingPage,
   getDetailLandingPage,
   getDashboard,
-  //   checkout,
-  //   getAllPayment,
+  checkout,
+  // getAllPayment,
 } = require("./controller");
 
 const { authenticateParticipant } = require("../../../middlewares/auth");
@@ -20,6 +20,6 @@ router.get("/events", getAllLandingPage);
 router.get("/events/:id", getDetailLandingPage);
 // router.get("/payments/:organizer", authenticateParticipant, getAllPayment);
 router.get("/orders", authenticateParticipant, getDashboard);
-// router.post("/checkout", authenticateParticipant, checkout);
+router.post("/checkout", authenticateParticipant, checkout);
 
 module.exports = router;
