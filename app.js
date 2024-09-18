@@ -6,6 +6,10 @@ const cors = require("cors");
 
 const app = express();
 
+app.get("/", (req, res) => {
+  res.status(200).json({ message: "Welcome to api semina" });
+});
+
 // Routes
 const categoriesRouter = require("./app/api/v1/categories/router");
 const imagesRouter = require("./app/api/v1/images/router");
@@ -28,10 +32,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
-
-app.get("/", (req, res) => {
-  res.status(200).json({ message: "Welcome to api semina" });
-});
 
 app.use(`${v1}/cms`, categoriesRouter);
 app.use(`${v1}/cms`, imagesRouter);
